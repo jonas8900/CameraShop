@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-
 export default createGlobalStyle`
  *,
   *::before,
@@ -12,11 +11,14 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
 
+
   }
 
     body {
     margin: 0;
     padding: 0;
+    height: 100%;
+    width: 100%;
     font-family: "Poppins", sans-serif;
 
     }
