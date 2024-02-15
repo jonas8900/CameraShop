@@ -104,10 +104,10 @@ const StyledSubThirdHeadline = styled.h3`
   font-size: var(--font-size-small-headline-mobile);
   font-weight: var(--font-weight-semibold);
   width: 100%;
-  margin: 4rem auto auto auto;
+  margin: 4rem auto 0 auto;
   grid-area: subthirdheadline;
   @media (min-width: 768px) {
-    margin: 8rem auto auto 1rem;
+    margin: 6rem auto auto 1rem;
     font-size: var(--font-size-greater-text-desktop);
   }
   @media (min-width: 1024px) {
@@ -130,9 +130,9 @@ const StyledOfferButton = styled.button`
 
   @media (min-width: 768px) {
     margin: auto;
-    font-size: var(--font-size-smaller-text-desktop);
-    width: 12rem;
-    height: 3.5rem;
+    width: 15rem;
+    height: 4.5rem;
+    font-size: var(--font-size-common-text-desktop);
   }
 `;
 
@@ -144,6 +144,7 @@ const StyledDiv = styled.div`
   margin: 2rem auto;
   grid-area: div;
   @media (min-width: 768px) {
+    gap: 6rem;
   }
 `;
 
@@ -158,8 +159,8 @@ const StyledIconButton = styled.button`
   font-weight: var(--font-weight-regular);
   @media (min-width: 768px) {
     font-size: var(--font-size-smaller-text-desktop);
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
   }
 `;
 
@@ -180,7 +181,7 @@ const StyledContactParagraph = styled.p`
   font-weight: var(--font-weight-regular);
   grid-area: contactparagraph;
   @media (min-width: 768px) {
-    margin: auto auto auto 1rem;
+    margin: 0 auto auto 1rem;
     font-size: var(--font-size-small-text-desktop);
   }
   @media (min-width: 1024px) {

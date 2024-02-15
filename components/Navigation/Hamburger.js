@@ -56,7 +56,7 @@ const StyledList = styled.ul`
     width: 2rem;
     background-color: ${({ $menuclicked }) =>
       $menuclicked ? "white" : "var(--color-primary-red)"};
-    height: 0.25rem;
+    height: 0.26rem;
     border-radius: 5px;
     transform-origin: 3px;
     transition: transform 0.2s linear;
