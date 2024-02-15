@@ -1,4 +1,5 @@
 import HeaderSection from "@/components/Header/HeaderSection";
+import CustomerTestimonialSection from "@/components/Landingpage/CustomerTestimonialSection";
 import OptionsToRent from "@/components/Landingpage/OptionsToRent";
 import SectionTransition from "@/components/Landingpage/SectionTransition";
 import LandingPageIntroduction from "@/components/Landingpage/introduction";
@@ -16,6 +17,7 @@ export default function Home() {
         <StyledSectionWrapper>
           <OptionsToRent />
         </StyledSectionWrapper>
+        <CustomerTestimonialSection />
       </StyledMain>
     </>
   );
