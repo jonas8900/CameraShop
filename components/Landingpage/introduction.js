@@ -9,7 +9,6 @@ export default function LandingPageIntroduction() {
       <StyledSubheadline>
         Unser Equipment sorgt für den klaren Fokus
       </StyledSubheadline>
-
       <StyledOfferButton>Angebote</StyledOfferButton>
       <StyledParagraph>
         Bei uns kannst du hochwertige Kameras, beeindruckende Objektive und
@@ -78,7 +77,12 @@ const StyledHeadline = styled.h1`
 
 const StyledSpan = styled.span`
   color: var(--color-primary-red);
-  filter: blur(0.7px);
+  filter: blur(4px);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    filter: none;
+  }
   @media (min-width: 768px) {
   }
 `;
