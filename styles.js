@@ -10,8 +10,6 @@ export default createGlobalStyle`
   html {
     margin: 0;
     padding: 0;
-
-
   }
 
     body {
@@ -19,8 +17,6 @@ export default createGlobalStyle`
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: "Poppins", sans-serif;
-
     }
 
     :root {
@@ -38,20 +34,26 @@ export default createGlobalStyle`
       --font-size-greater-text-mobile: 1.063rem;
       --font-size-small-headline-mobile: 1.125rem;
       --font-size-subheadline-mobile: 1.25rem;
-      --font-size-sectionheadline-mobile: 2rem;
-      --font-size-headline-mobile: 3.875rem;
+      --font-size-sectionheadline-mobile: 1.75rem;
+      --font-size-headline-mobile: 2rem;
       --font-size-smallest-text-desktop: 1rem;
       --font-size-smaller-text-desktop: 1.125rem;
-      --font-size-common-text-desktop: 1.375rem;
-      --font-size-greater-text-desktop: 1.625rem;
-      --font-size-small-headline-desktop: 1.875rem;
-      --font-size-subheadline-desktop: 2.2rem;
-      --font-size-sectionheadline-desktop: 3.5rem;
-      --font-size-headline-desktop: 3.875rem;
+      --font-size-common-text-desktop: 1.275rem;
+      --font-size-greater-text-desktop: 1.325rem;
+      --font-size-small-headline-desktop: 1.575rem;
+      --font-size-subheadline-desktop: 1.9rem;
+      --font-size-sectionheadline-desktop: 3.2rem;
+      --font-size-headline-desktop: 3.6rem;
       --font-weight-light: 300;
       --font-weight-regular: 400;   
       --font-weight-medium: 500;   
       --font-weight-semibold: 600;
       --font-weight-bold: 700;
     }
+
+    button, 
+    input {
+    font-family: inherit;
+}
+
 `;
