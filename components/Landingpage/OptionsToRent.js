@@ -44,7 +44,7 @@ const StyledList = styled.ul`
   padding: 0;
 
   @media (min-width: 1024px) {
-    gap: 5rem;
+    gap: 8rem;
     margin: 8rem auto;
   }
 `;
@@ -52,7 +52,7 @@ const StyledList = styled.ul`
 const StyledListItem = styled.li`
   position: relative;
   width: 12rem;
-  height: 12rem;
+  height: 10rem;
   border-radius: 18px;
   box-shadow: 0px 4px 47.5px -3px #bab5b5;
   background-color: #ffffff;
@@ -64,6 +64,10 @@ const StyledListItem = styled.li`
   &:hover p {
     visibility: hidden;
   }
+  @media (min-width: 1024px) {
+    width: 18rem;
+    height: 16rem;
+  }
 `;
 
 const StyledParagraph = styled.p`
@@ -74,6 +78,10 @@ const StyledParagraph = styled.p`
   font-size: var(--font-size-sectionheadline-mobile);
   font-weight: var(--font-weight-semibold);
   color: var(--color-primary-red);
+
+  @media (min-width: 1024px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const StyledImage = styled(Image)`

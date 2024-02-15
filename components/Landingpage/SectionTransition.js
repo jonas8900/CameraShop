@@ -20,7 +20,7 @@ const StyledSection = styled.section`
   width: 100%;
   margin-top: 6rem;
   @media (min-width: 768px) {
-    margin-top: 12rem;
+    margin-top: 10rem;
   }
 `;
 
@@ -46,6 +46,7 @@ const StyledSmallerHeadline = styled.h1`
   margin: 0rem auto 0rem auto;
   @media (min-width: 1024px) {
     font-size: var(--font-size-greater-text-desktop);
+    margin-top: 1rem;
   }
 `;
 
@@ -54,6 +55,7 @@ const StyledGreaterHeadline = styled.h2`
   margin: 0rem auto 0rem auto;
   @media (min-width: 1024px) {
     font-size: var(--font-size-sectionheadline-desktop);
+    margin-bottom: 1rem;
   }
 `;
 

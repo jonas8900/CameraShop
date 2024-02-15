@@ -10,9 +10,8 @@ export default function Home() {
     <>
       <StyledHeaderSection />
       <StyledMain>
-        <StyledSectionWrapper>
-          <LandingPageIntroduction />
-        </StyledSectionWrapper>
+        <LandingPageIntroduction />
+
         <SectionTransition />
         <StyledSectionWrapper>
           <OptionsToRent />
@@ -31,7 +30,7 @@ const StyledSectionWrapper = styled.section`
     width: 60rem;
   }
   @media (min-width: 1280px) {
-    width: 67rem;
+    width: 75rem;
   }
 `;
 
