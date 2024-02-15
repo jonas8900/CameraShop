@@ -47,7 +47,7 @@ const StyledList = styled.ul`
   gap: 0.3rem;
   cursor: pointer;
   padding: 2rem;
-  z-index: 1;
+  z-index: 2;
   right: 1rem;
   top: 1rem;
   margin: auto;

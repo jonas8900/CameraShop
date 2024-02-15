@@ -118,9 +118,10 @@ const StyledSection = styled.section`
   margin: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
   background: linear-gradient(
     165deg,
-    #525253 0%,
+    #525253 100%,
     rgba(189, 189, 189, 0.95) 90.45%
   );
   animation: ${({ $menuclicked }) => ($menuclicked ? FadeIn : FadeOut)} 0.5s

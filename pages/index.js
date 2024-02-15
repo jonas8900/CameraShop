@@ -1,20 +1,23 @@
+import SectionTransition from "@/components/Landingpage/SectionTransition";
+import LandingPageIntroduction from "@/components/Landingpage/introduction";
 import NavigationBar from "@/components/Navigation/NavBar";
 import styled from "styled-components";
 
 export default function Home() {
   return (
-    <StyledMain>
+    <>
       <StyledHeaderSection>
         <NavigationBar />
       </StyledHeaderSection>
-    </StyledMain>
+      <StyledMain>
+        <LandingPageIntroduction />
+        <SectionTransition />
+      </StyledMain>
+    </>
   );
 }
 
-const StyledMain = styled.main`
-  margin: 0;
-  padding: 0;
-`;
+const StyledMain = styled.main``;
 
 const StyledHeaderSection = styled.header`
   background: url("/Backgroundpictures/Landingpage.jpg") lightgray 50% / cover
