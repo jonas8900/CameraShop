@@ -6,12 +6,12 @@ import Link from "next/link";
 export default function OptionsToRent() {
   return (
     <>
-        <StyledHeadline>Wähle aus was du dir anschauen möchtest</StyledHeadline>
-        <StyledSubHeadline>
-          Entdecken Sie unsere breite Palette an Kameras, Objektiven und
-          Lichtern, die Ihnen helfen, jedes Projekt mit professioneller Qualität
-          und Präzision zu verwirklichen.
-        </StyledSubHeadline>
+      <StyledHeadline>Wähle aus was du dir anschauen möchtest</StyledHeadline>
+      <StyledSubHeadline>
+        Entdecken Sie unsere breite Palette an Kameras, Objektiven und Lichtern,
+        die Ihnen helfen, jedes Projekt mit professioneller Qualität und
+        Präzision zu verwirklichen.
+      </StyledSubHeadline>
       <StyledList>
         {CategoryCardData.map((category) => (
           <StyledListItem key={category.title}>
@@ -21,6 +21,7 @@ export default function OptionsToRent() {
                 alt={category.title}
                 width={300}
                 height={300}
+                loading="lazy"
               />
               <StyledParagraph>{category.title}</StyledParagraph>
             </Link>
@@ -118,4 +119,3 @@ const StyledSubHeadline = styled.h2`
     font-size: var(--font-size-common-text-desktop);
   }
 `;
-
