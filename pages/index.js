@@ -1,3 +1,5 @@
+import HeaderSection from "@/components/Header/HeaderSection";
+import OptionsToRent from "@/components/Landingpage/OptionsToRent";
 import SectionTransition from "@/components/Landingpage/SectionTransition";
 import LandingPageIntroduction from "@/components/Landingpage/introduction";
 import NavigationBar from "@/components/Navigation/NavBar";
@@ -6,12 +8,15 @@ import styled from "styled-components";
 export default function Home() {
   return (
     <>
-      <StyledHeaderSection>
-        <NavigationBar />
-      </StyledHeaderSection>
+      <StyledHeaderSection />
       <StyledMain>
-        <LandingPageIntroduction />
+        <StyledSectionWrapper>
+          <LandingPageIntroduction />
+        </StyledSectionWrapper>
         <SectionTransition />
+        <StyledSectionWrapper>
+          <OptionsToRent />
+        </StyledSectionWrapper>
       </StyledMain>
     </>
   );
@@ -19,12 +24,18 @@ export default function Home() {
 
 const StyledMain = styled.main``;
 
-const StyledHeaderSection = styled.header`
+const StyledSectionWrapper = styled.section`
+  width: 75%;
+  margin: auto;
+  @media (min-width: 1024px) {
+    width: 60rem;
+  }
+  @media (min-width: 1280px) {
+    width: 67rem;
+  }
+`;
+
+const StyledHeaderSection = styled(HeaderSection)`
   background: url("/Backgroundpictures/Landingpage.jpg") lightgray 50% / cover
     no-repeat;
-  margin: auto;
-  min-height: 30vh;
-  @media (min-width: 768px) {
-    min-height: 75vh;
-  }
 `;
