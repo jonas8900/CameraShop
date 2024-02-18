@@ -49,6 +49,9 @@ export default createGlobalStyle`
       --font-weight-medium: 500;   
       --font-weight-semibold: 600;
       --font-weight-bold: 700;
+      --text-shadow-buttons: 0px 4px 14.4px -4px #B75C5C;
+      --text-shadow-divs: 0px 4px 20px 2px rgba(0, 0, 0, 0.25);
+
     }
 
     button, 

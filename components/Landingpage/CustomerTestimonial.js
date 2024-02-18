@@ -1,34 +1,47 @@
-import Image from "next/image";
 import styled from "styled-components";
 import { TestimonialData } from "../DataCollection";
 import { useMediaQuery } from "../Customhooks/useMediaQuery";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 
 export default function CustomerTestimonial() {
   const isTablet = useMediaQuery(1440);
 
+  // set three different states for the three different testimonials in the right order!
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [secondIndex, setSecondIndex] = useState(1);
+  const [thirdIndex, setThirdIndex] = useState(2);
+
+  function handleDecreaseIndex() {
+    setTestimonialIndex(
+      (testimonialIndex - 1 + TestimonialData.length) % TestimonialData.length
+    );
+    setSecondIndex(
+      (secondIndex - 1 + TestimonialData.length) % TestimonialData.length
+    );
+    setThirdIndex(
+      (thirdIndex - 1 + TestimonialData.length) % TestimonialData.length
+    );
+  }
+  function handleAddIndex() {
+    setTestimonialIndex((testimonialIndex + 1) % TestimonialData.length);
+    setSecondIndex((secondIndex + 1) % TestimonialData.length);
+    setThirdIndex((thirdIndex + 1) % TestimonialData.length);
+  }
+
   return (
     <StyledSection>
-      {isTablet
-        ? TestimonialData.filter((testimonial) => testimonial.id === 1).map(
-            (testimonial) => (
-              <StyledArticle key={testimonial.id}>
-                <StyledCircle>
-                  <StyledImage
-                    src={testimonial.profilPicture}
-                    alt="Profilbild"
-                    width={100}
-                    height={100}
-                  />
-                </StyledCircle>
-                <StyledName>{testimonial.name}</StyledName>
-                <StyledDate>{testimonial.date}</StyledDate>
-                <StyledTestimonialParagraph>
-                  {testimonial.testimonial}
-                </StyledTestimonialParagraph>
-              </StyledArticle>
-            )
-          )
-        : TestimonialData.map((testimonial) => (
+      <StyledIcon icon={faChevronLeft} onClick={handleDecreaseIndex} />
+      {isTablet ? ( // mobile / tablet view
+        <>
+          {TestimonialData.filter(
+            (testimonial, index) => index === testimonialIndex
+          ).map((testimonial) => (
             <StyledArticle key={testimonial.id}>
               <StyledCircle>
                 <StyledImage
@@ -45,12 +58,82 @@ export default function CustomerTestimonial() {
               </StyledTestimonialParagraph>
             </StyledArticle>
           ))}
+        </>
+      ) : (
+        //desktop view
+        <>
+          {TestimonialData.filter(
+            // the filter function sorts the array so we need three filter or find functions to get the right order of the testimonials
+            (testimonial, index) => index === testimonialIndex
+          ).map((testimonial) => (
+            <StyledArticle key={testimonial.id}>
+              <StyledCircle>
+                <StyledImage
+                  src={testimonial.profilPicture}
+                  alt="Profilbild"
+                  width={100}
+                  height={100}
+                />
+              </StyledCircle>
+              <StyledName>{testimonial.name}</StyledName>
+              <StyledDate>{testimonial.date}</StyledDate>
+              <StyledTestimonialParagraph>
+                {testimonial.testimonial}
+              </StyledTestimonialParagraph>
+            </StyledArticle>
+          ))}
+          {TestimonialData.filter(
+            (testimonial, index) => index === secondIndex
+          ).map((testimonial) => (
+            <StyledArticle key={testimonial.id}>
+              <StyledCircle>
+                <StyledImage
+                  src={testimonial.profilPicture}
+                  alt="Profilbild"
+                  width={100}
+                  height={100}
+                />
+              </StyledCircle>
+              <StyledName>{testimonial.name}</StyledName>
+              <StyledDate>{testimonial.date}</StyledDate>
+              <StyledTestimonialParagraph>
+                {testimonial.testimonial}
+              </StyledTestimonialParagraph>
+            </StyledArticle>
+          ))}
+          {TestimonialData.filter(
+            (testimonial, index) => index === thirdIndex
+          ).map((testimonial) => (
+            <StyledArticle key={testimonial.id}>
+              <StyledCircle>
+                <StyledImage
+                  src={testimonial.profilPicture}
+                  alt="Profilbild"
+                  width={100}
+                  height={100}
+                />
+              </StyledCircle>
+              <StyledName>{testimonial.name}</StyledName>
+              <StyledDate>{testimonial.date}</StyledDate>
+              <StyledTestimonialParagraph>
+                {testimonial.testimonial}
+              </StyledTestimonialParagraph>
+            </StyledArticle>
+          ))}
+        </>
+      )}
+      <StyledIcon
+        icon={faChevronRight}
+        onClick={() => handleAddIndex(testimonialIndex)}
+      />
     </StyledSection>
   );
 }
 
 const StyledSection = styled.section`
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 90%;
   margin: auto;
   @media (min-width: 1920px) {
@@ -144,5 +227,17 @@ const StyledDate = styled.p`
   @media (min-width: 1024px) {
     font-size: var(--font-size-smaller-text-desktop);
     font-weight: var(--font-weight-light);
+  }
+`;
+
+const StyledIcon = styled(FontAwesomeIcon)`
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  color: var(--color-secondary-grey-text);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: red;
   }
 `;

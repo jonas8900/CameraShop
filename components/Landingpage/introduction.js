@@ -122,8 +122,8 @@ const StyledSubThirdHeadline = styled.h3`
 const StyledOfferButton = styled.button`
   width: 8rem;
   height: 2.5rem;
-  background: #b75c5c;
-  box-shadow: 0px 4px 34.4px -4px var(--color-primary-red);
+  background: var(--color-primary-red);
+  box-shadow: 0px 4px 14.4px -4px var(--color-primary-red);
   border: none;
   color: white;
   font-size: var(--font-size-smaller-text-mobile);
@@ -155,8 +155,8 @@ const StyledDiv = styled.div`
 const StyledIconButton = styled.button`
   width: 3rem;
   height: 3rem;
-  background: #b75c5c;
-  box-shadow: 0px 4px 34.4px -4px var(--color-primary-red);
+  background: var(--color-primary-red);
+  box-shadow: 0px 4px 14.4px -4px var(--color-primary-red);
   border: none;
   color: white;
   font-size: var(--font-size-smaller-text-mobile);
@@ -203,7 +203,6 @@ const StyledOpeningParagraph = styled.p`
 
 const StyledOpeningHeadline = styled.h5`
   color: var(--Extra-Colors, #b75c5c);
-  text-shadow: 0px 4px 14.5px rgba(0, 0, 0, 0.25);
   font-size: var(--font-size-greater-text-mobile);
   margin: 0;
   @media (min-width: 1024px) {
