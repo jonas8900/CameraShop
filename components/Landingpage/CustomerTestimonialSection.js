@@ -5,15 +5,10 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
 import { TestimonialData } from "../DataCollection";
 
 export default function CustomerTestimonialSection() {
-  const [testimonialIndex, setTestimonialIndex] = useState(0);
 
-  function handleChangeIndex(index) {
-    setTestimonialIndex((index % TestimonialData.length) - 1);
-  }
 
   return (
     <StyledSection>
@@ -21,9 +16,7 @@ export default function CustomerTestimonialSection() {
         Bewertung von <StyledSpan>unseren</StyledSpan> Kunden
       </StyledHeadline>
       <StyledArticle>
-        <StyledIcon icon={faChevronLeft} />
         <CustomerTestimonial />
-        <StyledIcon icon={faChevronRight} />
       </StyledArticle>
     </StyledSection>
   );
@@ -43,11 +36,9 @@ const StyledSection = styled.section`
 
 const StyledArticle = styled.article`
   display: flex;
-
   justify-content: center;
   align-items: center;
   margin: auto;
-
   @media (min-width: 768px) {
     margin: auto 4rem auto 4rem;
   }
