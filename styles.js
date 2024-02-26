@@ -44,6 +44,7 @@ export default createGlobalStyle`
       --font-size-subheadline-desktop: 1.9rem;
       --font-size-sectionheadline-desktop: 3.2rem;
       --font-size-headline-desktop: 3.6rem;
+      --font-weight-extralight: 200;
       --font-weight-light: 300;
       --font-weight-regular: 400;   
       --font-weight-medium: 500;   

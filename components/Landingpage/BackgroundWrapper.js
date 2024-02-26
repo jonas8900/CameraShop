@@ -14,8 +14,7 @@ export default function BackgroundWrapper() {
 //safe for later use in the index.html file to add the background elements
 
 const StyledDiv = styled.div`
-  overflow: hidden;
-  position: absolute;
+  display: inline-block;
 `;
 
 const StyledBackgroundDiv = styled.div`

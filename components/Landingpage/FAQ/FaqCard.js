@@ -2,52 +2,54 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { FaqData } from "@/components/DataCollection";
+import BackgroundWrapper from "../BackgroundWrapper";
 
 export default function FaqCard() {
   const [openFaq, setOpenFaq] = useState(null);
 
   return (
-    <StyledSectionWrapper>
-      <StyledHeadline>FAQ ?</StyledHeadline>
-      <StyledParagraph>
-        Entdecken Sie die Antworten auf häufig gestellte Fragen unserer Kunden –
-        eine kompakte Wissensquelle für alle Aspekte unseres Services und
-        unserer Produkte
-      </StyledParagraph>
-
-      <StyledSectionFaqCardWrapper>
-        {FaqData.map((faq, index) => (
-          <StyledSection
-            key={index}
-            onMouseOver={() => {
-              setOpenFaq(index);
-            }}
-            onMouseLeave={() => {
-              setOpenFaq(null);
-            }}
-            onTouchStart={() => setOpenFaq(index)}
-            onTouchEnd={() => setOpenFaq(null)}
-            $openFaq={openFaq === index ? true : false}>
-            {openFaq === index ? (
-              <StyledSectionForOpenFaq $openFaq={openFaq}>
-                <StyledIconWhileOpen icon={faq.iconName} />
-                <StyledHeadlineWhileOpen>
-                  {faq.headlineWhileOpen}
-                </StyledHeadlineWhileOpen>
-                <StyledParagraphWhileOpen>
-                  {faq.paragraphWhileOpen}
-                </StyledParagraphWhileOpen>
-              </StyledSectionForOpenFaq>
-            ) : (
-              <StyledIconAndHeadlineWrapper>
-                <StyledIcon icon={faq.iconName} />
-                <StyledSecondHeadline>{faq.headline}</StyledSecondHeadline>
-              </StyledIconAndHeadlineWrapper>
-            )}
-          </StyledSection>
-        ))}
-      </StyledSectionFaqCardWrapper>
-    </StyledSectionWrapper>
+    <>
+      <StyledSectionWrapper>
+        <StyledHeadline>FAQ ?</StyledHeadline>
+        <StyledParagraph>
+          Entdecken Sie die Antworten auf häufig gestellte Fragen unserer Kunden
+          – eine kompakte Wissensquelle für alle Aspekte unseres Services und
+          unserer Produkte
+        </StyledParagraph>
+        <StyledSectionFaqCardWrapper>
+          {FaqData.map((faq, index) => (
+            <StyledSection
+              key={index}
+              onMouseOver={() => {
+                setOpenFaq(index);
+              }}
+              onMouseLeave={() => {
+                setOpenFaq(null);
+              }}
+              onTouchStart={() => setOpenFaq(index)}
+              onTouchEnd={() => setOpenFaq(null)}
+              $openFaq={openFaq === index ? true : false}>
+              {openFaq === index ? (
+                <StyledSectionForOpenFaq $openFaq={openFaq}>
+                  <StyledIconWhileOpen icon={faq.iconName} />
+                  <StyledHeadlineWhileOpen>
+                    {faq.headlineWhileOpen}
+                  </StyledHeadlineWhileOpen>
+                  <StyledParagraphWhileOpen>
+                    {faq.paragraphWhileOpen}
+                  </StyledParagraphWhileOpen>
+                </StyledSectionForOpenFaq>
+              ) : (
+                <StyledIconAndHeadlineWrapper>
+                  <StyledIcon icon={faq.iconName} />
+                  <StyledSecondHeadline>{faq.headline}</StyledSecondHeadline>
+                </StyledIconAndHeadlineWrapper>
+              )}
+            </StyledSection>
+          ))}
+        </StyledSectionFaqCardWrapper>
+      </StyledSectionWrapper>
+    </>
   );
 }
 
@@ -132,7 +134,7 @@ const StyledSection = styled.section`
   margin: 2rem auto;
   width: 18rem;
   height: 16rem;
-  background: #fff;
+  background: white;
   cursor: pointer;
   animation: ${({ $openFaq }) =>
     $openFaq ? ShadowAnimationStart : ShadowAnimationEnd};
@@ -153,6 +155,9 @@ const StyledHeadline = styled.h1`
     margin: 10rem 10rem 2rem 20rem;
     font-size: var(--font-size-headline-desktop);
   }
+  @media (min-width: 2000px) {
+    margin: 10rem 10rem 2rem 40rem;
+  }
 `;
 
 const StyledParagraph = styled.p`
@@ -164,6 +169,9 @@ const StyledParagraph = styled.p`
     font-weight: 200;
     max-width: 40%;
     margin: 0rem 10rem 2rem 18rem;
+  }
+  @media (min-width: 2000px) {
+    margin: 0rem 10rem 2rem 38rem;
   }
 `;
 

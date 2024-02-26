@@ -1,3 +1,6 @@
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 import styled from "styled-components";
 
 export default function LandingPageIntroduction() {
@@ -23,8 +26,12 @@ export default function LandingPageIntroduction() {
         Dann kontaktiere uns direkt.
       </StyledContactParagraph>
       <StyledDiv>
-        <StyledIconButton>Tel</StyledIconButton>
-        <StyledIconButton>Mail</StyledIconButton>
+        <Link href="tel: 0800/779922">
+          <StyledIconButton icon={faPhone}></StyledIconButton>
+        </Link>
+        <Link href="mailto: Prolens@lens.com">
+          <StyledIconButton icon={faEnvelope} />
+        </Link>
       </StyledDiv>
       <StyledArticle>
         <StyledOpeningHeadline>Öffnungszeiten:</StyledOpeningHeadline>
@@ -131,6 +138,13 @@ const StyledOfferButton = styled.button`
   margin: 2rem auto;
   padding: auto;
   grid-area: offerbutton;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background: var(--color-primary-beidge-buttonhover);
+    box-shadow: 0px 4px 14.4px -4px var(--color-primary-red);
+    color: black;
+  }
 
   @media (min-width: 768px) {
     margin: auto;
@@ -152,19 +166,27 @@ const StyledDiv = styled.div`
   }
 `;
 
-const StyledIconButton = styled.button`
-  width: 3rem;
-  height: 3rem;
+const StyledIconButton = styled(FontAwesomeIcon)`
+  width: 2rem;
+  height: 2rem;
   background: var(--color-primary-red);
   box-shadow: 0px 4px 14.4px -4px var(--color-primary-red);
   border: none;
   color: white;
   font-size: var(--font-size-smaller-text-mobile);
   font-weight: var(--font-weight-regular);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  padding: 1rem;
+  &:hover {
+    background: var(--color-primary-beidge-buttonhover);
+    box-shadow: 0px 4px 14.4px -4px var(--color-primary-red);
+    color: black;
+  }
   @media (min-width: 768px) {
     font-size: var(--font-size-smaller-text-desktop);
-    width: 5rem;
-    height: 5rem;
+    width: 3rem;
+    height: 3rem;
   }
 `;
 
