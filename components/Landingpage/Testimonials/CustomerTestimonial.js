@@ -139,6 +139,9 @@ const StyledSection = styled.section`
   @media (min-width: 1920px) {
     width: 100rem;
   }
+  @media (max-width: 400px) {
+    width: 70%;
+  }
 `;
 
 const StyledArticle = styled.article`
@@ -157,6 +160,16 @@ const StyledArticle = styled.article`
     margin-top: 8rem;
     width: 26rem;
     height: 29rem;
+  }
+  @media (max-width: 400px) {
+    height: 100%;
+    grid-template-rows: 0.2fr 0.1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 0;
+    grid-template-areas:
+      "circle name"
+      "date date"
+      "testimonial testimonial ";
   }
 `;
 

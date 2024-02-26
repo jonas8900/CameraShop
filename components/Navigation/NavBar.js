@@ -20,7 +20,7 @@ export default function NavigationBar() {
   }, [menuClicked]);
 
   return (
-    <nav>
+    <StyledNav>
       {isMobile ? (
         <>
           <Hamburger
@@ -48,10 +48,15 @@ export default function NavigationBar() {
           <li>Kontakt</li>
         </StyledList>
       )}
-    </nav>
+    </StyledNav>
   );
 }
 
+const StyledNav = styled.nav`
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+`;
 
 //mobile view
 const FadeIn = keyframes`
@@ -95,7 +100,7 @@ const StyledList = styled.ul`
       text-shadow: 0px 4px 20.5px rgba(255, 255, 255, 0.25);
       line-height: normal;
       font-weight: var(--font-weight-semibold);
-      font-size: var(--font-size-greater-text-desktop);
+      font-size: var(--font-size-small-headline-desktop);
       transition: color 0.2s ease-in-out;
 
       &:hover {
