@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { TestimonialData } from "../DataCollection";
-import { useMediaQuery } from "../Customhooks/useMediaQuery";
+import { TestimonialData } from "../../DataCollection";
+import { useMediaQuery } from "../../Customhooks/useMediaQuery";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
