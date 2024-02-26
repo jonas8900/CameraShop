@@ -5,11 +5,9 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { TestimonialData } from "../DataCollection";
+import { TestimonialData } from "../../DataCollection";
 
 export default function CustomerTestimonialSection() {
-
-
   return (
     <StyledSection>
       <StyledHeadline>

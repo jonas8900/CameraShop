@@ -1,10 +1,13 @@
 import HeaderSection from "@/components/Header/HeaderSection";
-import CustomerTestimonialSection from "@/components/Landingpage/CustomerTestimonialSection";
+import CustomerTestimonialSection from "@/components/Landingpage/Testimonials/CustomerTestimonialSection";
 import OptionsToRent from "@/components/Landingpage/OptionsToRent";
 import SectionTransition from "@/components/Landingpage/SectionTransition";
 import LandingPageIntroduction from "@/components/Landingpage/introduction";
 import NavigationBar from "@/components/Navigation/NavBar";
 import styled from "styled-components";
+import FaqCard from "@/components/Landingpage/FAQ/FaqCard";
+import TechnicalProblems from "@/components/Landingpage/TechnicalProblems/TechnicalProblems";
+
 
 export default function Home() {
   return (
@@ -18,6 +21,9 @@ export default function Home() {
           <OptionsToRent />
         </StyledSectionWrapper>
         <CustomerTestimonialSection />
+
+        <FaqCard />
+        <TechnicalProblems />
       </StyledMain>
     </>
   );
