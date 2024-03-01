@@ -34,8 +34,7 @@ export default function ProductIntroduction({
             onClick={() => handleProductSelection("cameras")}>
             Kameras
           </ProductSelectButton>
-          <ProductSelectButton
-            onClick={() => handleProductSelection("lesnses")}>
+          <ProductSelectButton onClick={() => handleProductSelection("lenses")}>
             Objektive
           </ProductSelectButton>
           <ProductSelectButton onClick={() => handleProductSelection("lights")}>

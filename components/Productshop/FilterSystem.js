@@ -160,19 +160,29 @@ const StyledSearchArticle = styled.article`
 
 const StyledMoreFilter = styled.section`
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  margin: auto;
+  width: 60%;
   justify-content: space-between;
-  margin: 1.5rem auto;
   align-items: center;
-  flex-wrap: wrap;
+
+  @media (min-width: 1400px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 `;
 
 const StyledFilterArticle = styled.article`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0.5rem auto;
+  margin: 2rem auto 1rem 0;
   gap: 1.5rem;
+
+  @media (min-width: 1600px) {
+    gap: 2rem;
+  }
 `;
 
 const StyledShowMoreIcon = styled(FontAwesomeIcon)`

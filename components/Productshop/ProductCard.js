@@ -15,7 +15,7 @@ export default function ProductCard({
       <StyledInformationArticle>
         <StyledInformationHeadline>{title}</StyledInformationHeadline>
         <StyledInformationModel>{model}</StyledInformationModel>
-        <StyledShowMoreButton>Mehr erfahren</StyledShowMoreButton>
+        <StyledShowMoreButton>Konfigurieren</StyledShowMoreButton>
         <StyledInformationSpecialization>
           am besten geeignet für: <StyledSpan>{specialization}</StyledSpan>
         </StyledInformationSpecialization>
@@ -41,6 +41,11 @@ const StyledSection = styled.section`
   flex-shrink: 0;
   margin: auto;
   position: relative;
+
+  @media (min-width: 1024px) {
+    width: 23.9375rem;
+    height: 30.3125rem;
+  }
 `;
 
 const StyledProductImageDiv = styled.div`
@@ -52,7 +57,16 @@ const StyledProductImageDiv = styled.div`
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%
     ),
-    url(${({ imageUrl }) => `"` + imageUrl + `"`}) center/70% no-repeat;
+    url(${({ imageUrl }) => `"` + imageUrl + `"`}) center/60% no-repeat;
+
+  @media (min-width: 1024px) {
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.2) 100%
+      ),
+      url(${({ imageUrl }) => `"` + imageUrl + `"`}) center/65% no-repeat;
+  }
 `;
 
 const StyledInformationArticle = styled.article`
@@ -93,12 +107,20 @@ const StyledInformationHeadline = styled.h3`
   color: var(--color-primary-red);
 
   grid-area: headline;
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-small-headline-desktop);
+  }
 `;
 
 const StyledInformationModel = styled.h4`
   font-size: var(--font-size-smaller-text-mobile);
   font-weight: var(--font-weight-light);
   grid-area: headlinemodel;
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-common-text-desktop);
+  }
 `;
 
 const StyledShowMoreButton = styled.button`
@@ -120,16 +142,29 @@ const StyledShowMoreButton = styled.button`
     box-shadow: 0px 4px 14.4px -4px var(--color-primary-red);
     color: black;
   }
+
+  @media (min-width: 1024px) {
+    width: 10rem;
+    height: 3rem;
+    font-size: var(--font-size-smallest-text-desktop);
+    box-shadow: 0px 4px 20px 2px rgba(0, 0, 0, 0.25);
+    margin: 2rem 1rem 0rem 1rem;
+  }
 `;
 
 const StyledInformationSpecialization = styled.p`
   align-self: center;
-  margin: 1rem 0 auto 0;
+  margin: 0;
   font-size: 0.8rem;
   padding-left: 1rem;
   font-weight: var(--font-weight-light);
   color: var(--color-secondary-grey-text);
   grid-area: information;
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-smallest-text-desktop);
+    margin-top: 2rem;
+  }
 `;
 
 const StyledSpan = styled.span`
@@ -146,6 +181,13 @@ const StyledInformationAvailability = styled.div`
   font-weight: var(--font-weight-light);
   gap: 0.3rem;
   grid-area: isavailable;
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-smaller-text-desktop);
+    gap: 0.5rem;
+    margin: 1rem auto 0 1rem;
+    justify-content: flex-start;
+  }
 `;
 
 const StyledAvailableDiv = styled.div`
@@ -161,11 +203,15 @@ const StyledAvailableDiv = styled.div`
 `;
 
 const StyledInformationPrice = styled.p`
-  font-size: var(--font-size-common-text-mobile);
+  font-size: var(--font-size-greater-text-mobile);
   color: black;
   grid-area: price;
   justify-self: center;
   margin: auto auto 0.4rem auto;
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-small-headline-desktop);
+  }
 `;
 
 const StyledPriceSpan = styled.span`
