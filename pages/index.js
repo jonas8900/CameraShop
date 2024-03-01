@@ -3,14 +3,14 @@ import CustomerTestimonialSection from "@/components/Landingpage/Testimonials/Cu
 import OptionsToRent from "@/components/Landingpage/OptionsToRent";
 import SectionTransition from "@/components/Landingpage/SectionTransition";
 import LandingPageIntroduction from "@/components/Landingpage/introduction";
-import NavigationBar from "@/components/Navigation/NavBar";
 import styled from "styled-components";
 import FaqCard from "@/components/Landingpage/FAQ/FaqCard";
 import TechnicalProblems from "@/components/Landingpage/TechnicalProblems/TechnicalProblems";
 import Footer from "@/components/Footer/Footer";
-import BackgroundWrapper from "@/components/Landingpage/BackgroundWrapper";
 
-export default function Home() {
+
+export default function Home({ productSelection, setProductSelection }) {
+
   return (
     <>
       <StyledHeaderSection />
@@ -18,7 +18,7 @@ export default function Home() {
         <LandingPageIntroduction />
         <SectionTransition />
         <StyledSectionWrapper>
-          <OptionsToRent />
+          <OptionsToRent productSelection={productSelection} setProductSelection={setProductSelection}/>
         </StyledSectionWrapper>
         <CustomerTestimonialSection />
         {/* to get the background effect and wrap the elements around the last 3 sections, i created the divs inside the index.html */}

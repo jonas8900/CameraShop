@@ -1,11 +1,14 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Hamburger from "./Hamburger";
 import styled, { keyframes } from "styled-components";
 import { useMediaQuery } from "../Customhooks/useMediaQuery";
+import Link from "next/link";
 
 export default function NavigationBar() {
   const [menuClicked, setMenuClicked] = useState(false);
   const [animationEnd, setAnimationEnd] = useState(false);
+
+  //custom hook to check if the screen is mobile and use the custom hook because the useMediaQuery hook is not working on nextjs as it should
   const isMobile = useMediaQuery(768);
 
   useEffect(() => {
@@ -30,10 +33,18 @@ export default function NavigationBar() {
           {animationEnd && (
             <StyledSection $menuclicked={menuClicked}>
               <StyledList>
-                <li>Home</li>
-                <li>Produkte</li>
-                <li>Angebote</li>
-                <li>Kontakt</li>
+                <StyledLink href="/">
+                  <li>Home</li>
+                </StyledLink>
+                <StyledLink href="/products">
+                  <li>Produkte</li>
+                </StyledLink>
+                <StyledLink href="/offers">
+                  <li>Angebote</li>
+                </StyledLink>
+                <StyledLink href="/contact">
+                  <li>Kontakt</li>
+                </StyledLink>
                 <li>Login</li>
                 <li>Icon</li>
               </StyledList>
@@ -42,10 +53,18 @@ export default function NavigationBar() {
         </>
       ) : (
         <StyledList>
-          <li>Home</li>
-          <li>Produkte</li>
-          <li>Angebote</li>
-          <li>Kontakt</li>
+          <StyledLink href="/">
+            <li>Home</li>
+          </StyledLink>
+          <StyledLink href="/products">
+            <li>Produkte</li>
+          </StyledLink>
+          <StyledLink href="/offers">
+            <li>Angebote</li>
+          </StyledLink>
+          <StyledLink href="/contact">
+            <li>Kontakt</li>
+          </StyledLink>
         </StyledList>
       )}
     </StyledNav>
@@ -56,6 +75,11 @@ const StyledNav = styled.nav`
   @media (max-width: 400px) {
     width: 100%;
   }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: white;
 `;
 
 //mobile view
@@ -72,7 +96,6 @@ const FadeOut = keyframes`
 const StyledList = styled.ul`
   list-style: none;
   padding: 6rem 4rem;
-
   li {
     font-size: var(--font-size-sectionheadline-mobile);
     font-weight: var(--font-weight-regular);
@@ -87,6 +110,7 @@ const StyledList = styled.ul`
   }
 
   //desktop view
+
   @media (min-width: 768px) {
     display: flex;
     gap: 1.5rem;
@@ -124,6 +148,7 @@ const StyledSection = styled.section`
   width: 100%;
   height: 100%;
   z-index: 1;
+
   background: linear-gradient(
     165deg,
     #525253 100%,

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { FaqData } from "@/components/DataCollection";
-import BackgroundWrapper from "../BackgroundWrapper";
+
 
 export default function FaqCard() {
   const [openFaq, setOpenFaq] = useState(null);

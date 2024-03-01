@@ -12,7 +12,7 @@ import Image from "next/image";
 export default function CustomerTestimonial() {
   const isTablet = useMediaQuery(1440);
 
-  // set three different states for the three different testimonials in the right order!
+  // set three different states for the three different testimonials in the right order.
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [secondIndex, setSecondIndex] = useState(1);
   const [thirdIndex, setThirdIndex] = useState(2);
