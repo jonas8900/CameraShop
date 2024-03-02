@@ -44,7 +44,7 @@ export default function FilterSystem({ search, setSearch }) {
             <StyledMoreFilter>
               <StyledFilterArticle>
                 <label id="Modell">Modell</label>
-                <select name="Modell" id="Modell" value="none">
+                <select name="Modell" id="Modell" defaultValue="none">
                   <StyledDefaultOption value="none">
                     Wähle ein Modell
                   </StyledDefaultOption>
@@ -58,7 +58,7 @@ export default function FilterSystem({ search, setSearch }) {
               </StyledFilterArticle>
               <StyledFilterArticle>
                 <label id="Preis">Preis</label>
-                <select name="Preis" id="Preis" value="none">
+                <select name="Preis" id="Preis" defaultValue="none">
                   <StyledDefaultOption value="none">
                     Wähle einen Preis
                   </StyledDefaultOption>
@@ -75,7 +75,7 @@ export default function FilterSystem({ search, setSearch }) {
               </StyledFilterArticle>
               <StyledFilterArticle>
                 <label id="Kategorie">Kategorie</label>
-                <select id="Kategorie" name="Kategorie" value="none">
+                <select id="Kategorie" name="Kategorie" defaultValue="none">
                   <StyledDefaultOption value="none">
                     Wähle eine Kategorie
                   </StyledDefaultOption>

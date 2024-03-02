@@ -13,17 +13,29 @@ export default function Products({ productSelection, setProductSelection }) {
   const [search, setSearch] = useState("");
 
   function filterProducts(productList, search) {
-    const lowercaseSearch = search.toLowerCase().trim();
-    console.log(lowercaseSearch);
+    const lowercaseSearch = search.toLowerCase().split(" ").join("");
     return productList.filter((product) => {
       return (
-        product.title.toLowerCase().includes(lowercaseSearch) ||
-        product.model.toLowerCase().includes(lowercaseSearch) ||
+        product.title
+          .toLowerCase()
+          .split(" ")
+          .join("")
+          .includes(lowercaseSearch) ||
+        product.model
+          .toLowerCase()
+          .split(" ")
+          .join("")
+          .includes(lowercaseSearch) ||
         (product.title + " " + product.model)
           .toLowerCase()
-          .trim()
+          .split(" ")
+          .join("")
           .includes(lowercaseSearch) ||
-        product.category.toLowerCase().includes(lowercaseSearch)
+        product.category
+          .toLowerCase()
+          .split(" ")
+          .join("")
+          .includes(lowercaseSearch)
       );
     });
   }

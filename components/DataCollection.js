@@ -482,7 +482,7 @@ export const LightProductList = [
     model: "120D Mark II",
     image:
       "/Productpictures/Productcard/Light/godox-es45-led-e-sport-panel 3.jpg",
-    category: "Objektiv",
+      category: "Lichter",
     specialization: "FilmProduktion",
     price: "49,00 €",
     available: true,
@@ -493,7 +493,7 @@ export const LightProductList = [
     model: "SL-60W",
     image:
       "/Productpictures/Productcard/Light/godox-sl60iibi-videoleuchte-2800-6500k.jpg",
-    category: "Objektiv",
+      category: "Lichter",
     specialization: "FilmProduktion",
     price: "39,00 €",
     available: true,
@@ -504,7 +504,7 @@ export const LightProductList = [
     model: "660 LED Video Light",
     image:
       "/Productpictures/Productcard/Light/godox-es45-led-e-sport-panel 3.jpg",
-    category: "Objektiv",
+      category: "Lichter",
     specialization: "FilmProduktion",
     price: "29,00 €",
     available: true,
@@ -515,7 +515,7 @@ export const LightProductList = [
     model: "120D Mark II",
     image:
       "/Productpictures/Productcard/Light/godox-es45-led-e-sport-panel 3.jpg",
-    category: "Objektiv",
+      category: "Lichter",
     specialization: "FilmProduktion",
     price: "49,00 €",
     available: true,
@@ -526,7 +526,7 @@ export const LightProductList = [
     model: "SL-60W",
     image:
       "/Productpictures/Productcard/Light/godox-space-panel-p600bi-knowled-led 2.jpg",
-    category: "Objektiv",
+    category: "Lichter",
     specialization: "FilmProduktion",
     price: "39,00 €",
     available: true,
