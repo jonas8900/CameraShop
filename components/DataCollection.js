@@ -298,7 +298,7 @@ export const CameraProductList = [
     available: true,
   },
   {
-    id: 10,
+    id: 11,
     title: "Sony",
     model: "Alpha 6400",
     image: "/Productpictures/Productcard/Camera/Sony Alpha 6400.jpg",
@@ -308,7 +308,7 @@ export const CameraProductList = [
     available: true,
   },
   {
-    id: 11,
+    id: 12,
     title: "Sony",
     model: "FX6",
     image: "/Productpictures/Productcard/Camera/Sony FX6.jpg",
@@ -318,7 +318,7 @@ export const CameraProductList = [
     available: true,
   },
   {
-    id: 12,
+    id: 13,
     title: "Sony",
     model: "PXW-Z150",
     image: "/Productpictures/Productcard/Camera/Sony PXW-Z150.png",
@@ -328,7 +328,7 @@ export const CameraProductList = [
     available: true,
   },
   {
-    id: 13,
+    id: 14,
     title: "DJI",
     model: "Air 2S",
     image: "/Productpictures/Productcard/Camera/DJI Air 2S.webp",
@@ -338,7 +338,7 @@ export const CameraProductList = [
     available: true,
   },
   {
-    id: 14,
+    id: 15,
     title: "DJI",
     model: "FPV",
     image: "/Productpictures/Productcard/Camera/DJI FPV Combo Drohne.webp",
@@ -348,7 +348,7 @@ export const CameraProductList = [
     available: true,
   },
   {
-    id: 15,
+    id: 16,
     title: "DJI",
     model: "Mini 2 SE",
     image:
@@ -359,7 +359,7 @@ export const CameraProductList = [
     available: true,
   },
   {
-    id: 16,
+    id: 17,
     title: "GoPro",
     model: "Hero 9 Black",
     image: "/Productpictures/Productcard/Camera/GoPro HERO 9 Black.webp",
@@ -369,7 +369,7 @@ export const CameraProductList = [
     available: true,
   },
   {
-    id: 17,
+    id: 18,
     title: "GoPro",
     model: "Hero 10 Black",
     image: "/Productpictures/Productcard/Camera/GoPro HERO 10 Black.webp",
@@ -379,7 +379,7 @@ export const CameraProductList = [
     available: true,
   },
   {
-    id: 17,
+    id: 19,
     title: "GoPro",
     model: "Hero 11 Black",
     image: "/Productpictures/Productcard/Camera/GoPro HERO 11 Black.webp",
@@ -389,7 +389,7 @@ export const CameraProductList = [
     available: true,
   },
   {
-    id: 18,
+    id: 20,
     title: "Insta360",
     model: "X3",
     image: "/Productpictures/Productcard/Camera/Insta360 X3.webp",
@@ -407,6 +407,7 @@ export const LensProductList = [
     model: "RF 24-70mm f/2.8L IS USM",
     image:
       "/Productpictures/Productcard/Lens/Canon RF 24-70mm f 2.8L IS USM.jpg",
+    category: "Objektiv",
     specialization: "FilmProduktion",
     price: "59,00 €",
     available: true,
@@ -416,6 +417,7 @@ export const LensProductList = [
     title: "Sony",
     model: "FE 24-70mm f/2.8 GM",
     image: "/Productpictures/Productcard/Lens/Sony FE 24-70mm f 2.8 GM.webp",
+    category: "Objektiv",
     specialization: "FilmProduktion",
     price: "49,00 €",
     available: true,
@@ -425,6 +427,7 @@ export const LensProductList = [
     title: "Nikon",
     model: "Z 24-70mm f/2.8 S",
     image: "/Productpictures/Productcard/Lens/Nikon Z 24-70mm f 2.8 S 2.webp",
+    category: "Objektiv",
     specialization: "FilmProduktion",
     price: "39,00 €",
     available: true,
@@ -435,6 +438,7 @@ export const LensProductList = [
     model: "24-70mm f/2.8 DG DN Art",
     image:
       "/Productpictures/Productcard/Lens/Sigma 24-70mm f 2.8 DG DN Art.webp",
+    category: "Objektiv",
     specialization: "FilmProduktion",
     price: "29,00 €",
     available: true,
@@ -444,6 +448,7 @@ export const LensProductList = [
     title: "Tamron",
     model: "24-70mm f/2.8 Di VC USD G2",
     image: "/Productpictures/Productcard/Lens/Tamron 24-70mm.webp",
+    category: "Objektiv",
     specialization: "FilmProduktion",
     price: "19,00 €",
     available: true,
@@ -453,6 +458,7 @@ export const LensProductList = [
     title: "Canon",
     model: "RF 24-70mm f/2.8L IS USM",
     image: "/Productpictures/Productcard/Lens/Nikon Z 24-70mm f 2.8 S 2.webp",
+    category: "Objektiv",
     specialization: "FilmProduktion",
     price: "59,00 €",
     available: true,
@@ -462,6 +468,7 @@ export const LensProductList = [
     title: "Sony",
     model: "FE 24-70mm f/2.8 GM",
     image: "/Productpictures/Productcard/Lens/Sony FE 14mm F 1.8 GM.webp",
+    category: "Objektiv",
     specialization: "FilmProduktion",
     price: "49,00 €",
     available: true,
@@ -473,7 +480,9 @@ export const LightProductList = [
     id: 0,
     title: "Aputure",
     model: "120D Mark II",
-    image: "/Productpictures/Aputure120DMarkII.jpg",
+    image:
+      "/Productpictures/Productcard/Light/godox-es45-led-e-sport-panel 3.jpg",
+    category: "Objektiv",
     specialization: "FilmProduktion",
     price: "49,00 €",
     available: true,
@@ -482,7 +491,9 @@ export const LightProductList = [
     id: 1,
     title: "Godox",
     model: "SL-60W",
-    image: "/Productpictures/GodoxSL60W.jpg",
+    image:
+      "/Productpictures/Productcard/Light/godox-sl60iibi-videoleuchte-2800-6500k.jpg",
+    category: "Objektiv",
     specialization: "FilmProduktion",
     price: "39,00 €",
     available: true,
@@ -491,7 +502,9 @@ export const LightProductList = [
     id: 2,
     title: "Neewer",
     model: "660 LED Video Light",
-    image: "/Productpictures/Neewer660LEDVideoLight.jpg",
+    image:
+      "/Productpictures/Productcard/Light/godox-es45-led-e-sport-panel 3.jpg",
+    category: "Objektiv",
     specialization: "FilmProduktion",
     price: "29,00 €",
     available: true,
@@ -500,7 +513,9 @@ export const LightProductList = [
     id: 3,
     title: "Aputure",
     model: "120D Mark II",
-    image: "/Productpictures/Aputure120DMarkII.jpg",
+    image:
+      "/Productpictures/Productcard/Light/godox-es45-led-e-sport-panel 3.jpg",
+    category: "Objektiv",
     specialization: "FilmProduktion",
     price: "49,00 €",
     available: true,
@@ -509,7 +524,9 @@ export const LightProductList = [
     id: 4,
     title: "Godox",
     model: "SL-60W",
-    image: "/Productpictures/GodoxSL60W.jpg",
+    image:
+      "/Productpictures/Productcard/Light/godox-space-panel-p600bi-knowled-led 2.jpg",
+    category: "Objektiv",
     specialization: "FilmProduktion",
     price: "39,00 €",
     available: true,

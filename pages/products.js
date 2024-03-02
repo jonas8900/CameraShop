@@ -7,19 +7,86 @@ import {
   LensProductList,
   LightProductList,
 } from "@/components/DataCollection";
+import { useState } from "react";
 
 export default function Products({ productSelection, setProductSelection }) {
-  console.log(productSelection);
+  const [search, setSearch] = useState("");
+
+  function filterProducts(productList, search) {
+    const lowercaseSearch = search.toLowerCase().trim();
+    console.log(lowercaseSearch);
+    return productList.filter((product) => {
+      return (
+        product.title.toLowerCase().includes(lowercaseSearch) ||
+        product.model.toLowerCase().includes(lowercaseSearch) ||
+        (product.title + " " + product.model)
+          .toLowerCase()
+          .trim()
+          .includes(lowercaseSearch) ||
+        product.category.toLowerCase().includes(lowercaseSearch)
+      );
+    });
+  }
+
+  const searchedCameras = filterProducts(CameraProductList, search);
+  const searchedLenses = filterProducts(LensProductList, search);
+  const searchedLights = filterProducts(LightProductList, search);
+
+  // this filtersystem searches for the product title, model and category and filters the products by the search input
+
   return (
     <>
       <ProductIntroduction
         productSelection={productSelection}
         setProductSelection={setProductSelection}
       />
-      <FilterSystem />
+      <FilterSystem search={search} setSearch={setSearch} />
       <StyledProductCardContainer>
-        {(productSelection === "all" || productSelection === "cameras") &&
-          CameraProductList.map((product) => (
+        {(productSelection === "all" || productSelection === "cameras") &
+        (search.trim() === "")
+          ? CameraProductList.map((product) => (
+              <ProductCard
+                key={product.id}
+                specialization={product.specialization}
+                available={product.available}
+                price={product.price}
+                title={product.title}
+                model={product.model}
+                imageUrl={product.image}
+              />
+            ))
+          : null}
+        {(productSelection === "all" || productSelection === "lenses") &
+        (search.trim() === "")
+          ? LensProductList.map((product) => (
+              <ProductCard
+                key={product.id}
+                specialization={product.specialization}
+                available={product.available}
+                price={product.price}
+                title={product.title}
+                model={product.model}
+                imageUrl={product.image}
+              />
+            ))
+          : null}
+        {(productSelection === "all" || productSelection === "lights") &
+        (search.trim() === "")
+          ? LightProductList.map((product) => (
+              <ProductCard
+                key={product.id}
+                specialization={product.specialization}
+                available={product.available}
+                price={product.price}
+                title={product.title}
+                model={product.model}
+                imageUrl={product.image}
+              />
+            ))
+          : null}
+
+        {(productSelection === ("all" & (search !== "")) || search !== "") &&
+          searchedCameras.map((product) => (
             <ProductCard
               key={product.id}
               specialization={product.specialization}
@@ -30,8 +97,8 @@ export default function Products({ productSelection, setProductSelection }) {
               imageUrl={product.image}
             />
           ))}
-        {(productSelection === "all" || productSelection === "lenses") &&
-          LensProductList.map((product) => (
+        {((productSelection === "all") & (search !== "") || search !== "") &&
+          searchedLenses.map((product) => (
             <ProductCard
               key={product.id}
               specialization={product.specialization}
@@ -42,8 +109,8 @@ export default function Products({ productSelection, setProductSelection }) {
               imageUrl={product.image}
             />
           ))}
-        {(productSelection === "all" || productSelection === "lights") &&
-          LightProductList.map((product) => (
+        {((productSelection === "all") & (search !== "") || search !== "") &&
+          searchedLights.map((product) => (
             <ProductCard
               key={product.id}
               specialization={product.specialization}

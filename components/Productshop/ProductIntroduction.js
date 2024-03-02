@@ -10,7 +10,7 @@ export default function ProductIntroduction({
   function handleProductSelection(product) {
     setProductSelection(product);
   }
-  console.log(productSelection);
+
   return (
     <>
       <StyledSection>

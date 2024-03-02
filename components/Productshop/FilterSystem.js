@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function FilterSystem() {
+export default function FilterSystem({ search, setSearch }) {
   const [showMore, setShowMore] = useState(false);
   const [arrow, setArrow] = useState(faChevronDown);
 
@@ -26,13 +26,16 @@ export default function FilterSystem() {
     event.preventDefault();
   }
 
+  function handleSearch(event) {
+    setSearch(event.target.value);
+  }
   return (
     <>
       <StyledSection>
         <StyledForm onSubmit={handleSubmit}>
           <StyledSearchArticle>
             <StyledShowMoreIcon icon={arrow} onClick={handleShowMore} />
-            <input type="text" placeholder="Suche" />
+            <input type="text" placeholder="Suche" onChange={handleSearch} />
             <StyledSubmitButton type="submit">
               <StyledSearchIcon icon={faSearch} />
             </StyledSubmitButton>
@@ -82,6 +85,8 @@ export default function FilterSystem() {
                   </StyledOption>
                   <StyledOption value="Drohne">Drohne</StyledOption>
                   <StyledOption value="Actionkamera">Actionkamera</StyledOption>
+                  <StyledOption value="Actionkamera">Objektiv</StyledOption>
+                  <StyledOption value="Actionkamera">Spotlights</StyledOption>
                 </select>
               </StyledFilterArticle>
               <label id="Suche"></label>
