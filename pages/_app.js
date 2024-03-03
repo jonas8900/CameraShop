@@ -1,3 +1,4 @@
+import { useState } from "react";
 import GlobalStyle from "../styles";
 import { Poppins } from "next/font/google";
 const poppins = Poppins({
@@ -7,10 +8,16 @@ const poppins = Poppins({
 });
 
 export default function App({ Component, pageProps }) {
+  const [productSelection, setProductSelection] = useState("all");
+
   return (
     <main className={poppins.className}>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <Component
+        {...pageProps}
+        productSelection={productSelection}
+        setProductSelection={setProductSelection}
+      />
     </main>
   );
 }

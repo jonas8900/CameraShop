@@ -58,6 +58,17 @@ export default createGlobalStyle`
     button, 
     input {
     font-family: inherit;
+} 
+
+select {
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  color: black;
+  border: none;
+  background-color: white;
+  padding: 0.3rem;
 }
 
 `;

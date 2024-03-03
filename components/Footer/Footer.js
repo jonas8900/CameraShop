@@ -68,6 +68,7 @@ export default function Footer() {
 const StyledFooterSection = styled.section`
   background-color: white;
   height: 100%;
+  margin-bottom: 2rem;
 `;
 
 const StyledScrollAndHelpSection = styled.section`

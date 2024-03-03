@@ -2,8 +2,21 @@ import Image from "next/image";
 import { CategoryCardData } from "../DataCollection";
 import styled from "styled-components";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-export default function OptionsToRent() {
+export default function OptionsToRent({
+  productSelection,
+  setProductSelection,
+}) {
+  const router = useRouter();
+
+  function handleProductSelection(product) {
+    setProductSelection(product);
+
+    router.push("/products");
+  }
+
+
   return (
     <>
       <StyledHeadline>Wähle aus was du dir anschauen möchtest</StyledHeadline>
@@ -14,17 +27,17 @@ export default function OptionsToRent() {
       </StyledSubHeadline>
       <StyledList>
         {CategoryCardData.map((category) => (
-          <StyledListItem key={category.title}>
-            <Link href="#">
-              <StyledImage
-                src={category.image}
-                alt={category.title}
-                width={300}
-                height={300}
-                loading="lazy"
-              />
-              <StyledParagraph>{category.title}</StyledParagraph>
-            </Link>
+          <StyledListItem
+            key={category.title}
+            onClick={() => handleProductSelection(category.router)}>
+            <StyledImage
+              src={category.image}
+              alt={category.title}
+              width={300}
+              height={300}
+              loading="lazy"
+            />
+            <StyledParagraph>{category.title}</StyledParagraph>
           </StyledListItem>
         ))}
       </StyledList>
