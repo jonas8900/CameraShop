@@ -29,6 +29,10 @@ export default function FilterSystem({ search, setSearch }) {
   function handleSearch(event) {
     setSearch(event.target.value);
   }
+
+
+
+
   return (
     <>
       <StyledSection>
@@ -44,10 +48,15 @@ export default function FilterSystem({ search, setSearch }) {
             <StyledMoreFilter>
               <StyledFilterArticle>
                 <label id="Modell">Modell</label>
-                <select name="Modell" id="Modell" defaultValue="none">
-                  <StyledDefaultOption value="none">
-                    Wähle ein Modell
+                <select
+                  name="Modell"
+                  id="Modell"
+                  defaultValue="none"
+                  onChange={handleSearch}>
+                  <StyledDefaultOption disabled value="none">
+                    -- Wähle ein Modell --
                   </StyledDefaultOption>
+                  <StyledOption value="">Alle</StyledOption>
                   <StyledOption value="Canon">Canon</StyledOption>
                   <StyledOption value="Sony">Sony</StyledOption>
                   <StyledOption value="Nikon">Nikon</StyledOption>
@@ -59,34 +68,39 @@ export default function FilterSystem({ search, setSearch }) {
               <StyledFilterArticle>
                 <label id="Preis">Preis</label>
                 <select name="Preis" id="Preis" defaultValue="none">
-                  <StyledDefaultOption value="none">
-                    Wähle einen Preis
+                  <StyledDefaultOption disabled value="none">
+                    -- Wähle einen Preis --
                   </StyledDefaultOption>
-                  <StyledOption value="unter 20 Euro">
+                  <StyledOption value="20">
                     unter 20 Euro
                   </StyledOption>
-                  <StyledOption value="bis 50 Euro">bis 50 Euro</StyledOption>
-                  <StyledOption value="bis 100 Euro">bis 100 Euro</StyledOption>
-                  <StyledOption value="bis 200 Euro">bis 200 Euro</StyledOption>
-                  <StyledOption value="über 200 Euro">
+                  <StyledOption value="50">bis 50 Euro</StyledOption>
+                  <StyledOption value="100">bis 100 Euro</StyledOption>
+                  <StyledOption value="200">bis 200 Euro</StyledOption>
+                  <StyledOption value="200">
                     über 200 Euro
                   </StyledOption>
                 </select>
               </StyledFilterArticle>
               <StyledFilterArticle>
                 <label id="Kategorie">Kategorie</label>
-                <select id="Kategorie" name="Kategorie" defaultValue="none">
-                  <StyledDefaultOption value="none">
-                    Wähle eine Kategorie
+                <select
+                  id="Kategorie"
+                  name="Kategorie"
+                  defaultValue="none"
+                  onChange={handleSearch}>
+                  <StyledDefaultOption disabled value="none">
+                    -- Wähle eine Kategorie --
                   </StyledDefaultOption>
+                  <StyledOption value="">Alle</StyledOption>
                   <StyledOption value="DSLR">DSLR</StyledOption>
                   <StyledOption value="Kompaktkamera">
                     Kompaktkamera
                   </StyledOption>
                   <StyledOption value="Drohne">Drohne</StyledOption>
-                  <StyledOption value="Actionkamera">Actionkamera</StyledOption>
-                  <StyledOption value="Actionkamera">Objektiv</StyledOption>
-                  <StyledOption value="Actionkamera">Spotlights</StyledOption>
+                  <StyledOption value="GoPro">Actionkamera</StyledOption>
+                  <StyledOption value="Objektiv">Objektiv</StyledOption>
+                  <StyledOption value="Lichter">Spotlights</StyledOption>
                 </select>
               </StyledFilterArticle>
               <label id="Suche"></label>
