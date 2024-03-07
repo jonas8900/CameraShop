@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export default function SectionTransition() {
+  // this section is to split the landingpage into different sections
+
   return (
     <StyledSection>
       <StyledArticle>

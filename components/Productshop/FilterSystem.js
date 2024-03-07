@@ -9,7 +9,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function FilterSystem({ search, setSearch }) {
+export default function FilterSystem({
+  search,
+  setSearch,
+  setMaxPrice,
+  setFiltered,
+  filtered,
+}) {
   const [showMore, setShowMore] = useState(false);
   const [arrow, setArrow] = useState(faChevronDown);
 
@@ -22,21 +28,40 @@ export default function FilterSystem({ search, setSearch }) {
     }
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
-
   function handleSearch(event) {
-    setSearch(event.target.value);
+    const searchedItem = event.target.value;
+    setSearch(searchedItem);
   }
 
+  function handleFilter(event) {
+    const selectedFilterTopic = event.target.id;
+    const selectedFilterValue = event.target.value;
+
+    if (filtered.length > 0) {
+      const filteredTopics = filtered.filter(
+        (filter) => filter[selectedFilterTopic]
+      );
+      const newFiltered = filtered.filter(
+        (filter) => !filteredTopics.includes(filter)
+      );
+      setFiltered([
+        ...newFiltered,
+        { [selectedFilterTopic]: selectedFilterValue },
+      ]);
+    } else {
+      setFiltered([
+        ...filtered,
+        { [selectedFilterTopic]: selectedFilterValue },
+      ]);
+    }
+  }
 
 
 
   return (
     <>
       <StyledSection>
-        <StyledForm onSubmit={handleSubmit}>
+        <StyledForm>
           <StyledSearchArticle>
             <StyledShowMoreIcon icon={arrow} onClick={handleShowMore} />
             <input type="text" placeholder="Suche" onChange={handleSearch} />
@@ -52,9 +77,9 @@ export default function FilterSystem({ search, setSearch }) {
                   name="Modell"
                   id="Modell"
                   defaultValue="none"
-                  onChange={handleSearch}>
+                  onChange={handleFilter}>
                   <StyledDefaultOption disabled value="none">
-                    -- Wähle ein Modell --
+                    -- Wähle eine Marke --
                   </StyledDefaultOption>
                   <StyledOption value="">Alle</StyledOption>
                   <StyledOption value="Canon">Canon</StyledOption>
@@ -67,40 +92,52 @@ export default function FilterSystem({ search, setSearch }) {
               </StyledFilterArticle>
               <StyledFilterArticle>
                 <label id="Preis">Preis</label>
-                <select name="Preis" id="Preis" defaultValue="none">
+                <select
+                  name="Preis"
+                  id="Preis"
+                  defaultValue="none"
+                  onChange={handleFilter}
+                  >
                   <StyledDefaultOption disabled value="none">
                     -- Wähle einen Preis --
                   </StyledDefaultOption>
-                  <StyledOption value="20">
-                    unter 20 Euro
-                  </StyledOption>
-                  <StyledOption value="50">bis 50 Euro</StyledOption>
-                  <StyledOption value="100">bis 100 Euro</StyledOption>
-                  <StyledOption value="200">bis 200 Euro</StyledOption>
-                  <StyledOption value="200">
-                    über 200 Euro
-                  </StyledOption>
+                  <StyledOption value="">Alle</StyledOption>
+                  <StyledOption value={20}>unter 20 Euro</StyledOption>
+                  <StyledOption value={50}>bis 50 Euro</StyledOption>
+                  <StyledOption value={100}>bis 100 Euro</StyledOption>
+                  <StyledOption value={200}>bis 200 Euro</StyledOption>
                 </select>
               </StyledFilterArticle>
               <StyledFilterArticle>
-                <label id="Kategorie">Kategorie</label>
+                <label id="Kategorie">Vorhaben</label>
                 <select
                   id="Kategorie"
                   name="Kategorie"
                   defaultValue="none"
-                  onChange={handleSearch}>
+                  onChange={handleFilter}>
                   <StyledDefaultOption disabled value="none">
-                    -- Wähle eine Kategorie --
+                    -- Wähle dein Vorhaben --
                   </StyledDefaultOption>
                   <StyledOption value="">Alle</StyledOption>
-                  <StyledOption value="DSLR">DSLR</StyledOption>
-                  <StyledOption value="Kompaktkamera">
-                    Kompaktkamera
+                  <StyledOption value="Fotoproduktion">
+                    Fotoproduktion
                   </StyledOption>
-                  <StyledOption value="Drohne">Drohne</StyledOption>
-                  <StyledOption value="GoPro">Actionkamera</StyledOption>
-                  <StyledOption value="Objektiv">Objektiv</StyledOption>
-                  <StyledOption value="Lichter">Spotlights</StyledOption>
+                  <StyledOption value="Filmproduktion">
+                    Filmproduktion
+                  </StyledOption>
+                  <StyledOption value="Luftaufnahme">Luftaufnahme</StyledOption>
+                  <StyledOption value="Freizeitaufnahme">
+                    Freizeitaufnahme
+                  </StyledOption>
+                  <StyledOption value="Fotobelichtung">
+                    Fotobelichtung
+                  </StyledOption>
+                  <StyledOption value="Filmsetbelichtung">
+                    Filmsetbelichtung
+                  </StyledOption>
+                  <StyledOption value="Outdooraufnahme">
+                    Outdooraufnahme
+                  </StyledOption>
                 </select>
               </StyledFilterArticle>
               <label id="Suche"></label>
