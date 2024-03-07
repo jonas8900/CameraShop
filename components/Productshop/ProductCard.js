@@ -24,7 +24,7 @@ export default function ProductCard({
           <StyledAvailableDiv available={available}></StyledAvailableDiv>
         </StyledInformationAvailability>
         <StyledInformationPrice>
-          {price}
+          {price},00 €
           <StyledPriceSpan>/pro Tag</StyledPriceSpan>
         </StyledInformationPrice>
       </StyledInformationArticle>

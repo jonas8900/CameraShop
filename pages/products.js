@@ -7,13 +7,32 @@ import {
   LensProductList,
   LightProductList,
 } from "@/components/DataCollection";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Products({ productSelection, setProductSelection }) {
   const [search, setSearch] = useState("");
+  const [filtered, setFiltered] = useState([]);
 
   function filterProducts(productList, search) {
+    // this function filters the products, which are filtered by the fields in the filter system
+
+    if (filtered.length > 0) {
+      return productList.filter((product) => {
+        // filter every product by checking each item if there is a match with the product
+        return filtered.every(
+          (item) =>
+            (item.Modell ? item.Modell === product.title : true) &&
+            (item.Kategorie
+              ? item.Kategorie === product.specialization
+              : true) &&
+            (item.Preis ? item.Preis > product.price : true)
+        );
+      });
+    }
+
+    // this function filters the products, which are filtered by the search input
     const lowercaseSearch = search.toLowerCase().split(" ").join("");
+
     return productList.filter((product) => {
       return (
         product.title
@@ -35,10 +54,21 @@ export default function Products({ productSelection, setProductSelection }) {
           .toLowerCase()
           .split(" ")
           .join("")
+          .includes(lowercaseSearch) ||
+        product.specialization
+          .toLowerCase()
+          .split(" ")
+          .join("")
           .includes(lowercaseSearch)
       );
     });
   }
+
+  //reset the filtered array when the search input changes
+
+  useEffect(() => {
+    setFiltered([]);
+  }, [search]);
 
   const searchedCameras = filterProducts(CameraProductList, search);
   const searchedLenses = filterProducts(LensProductList, search);
@@ -52,10 +82,16 @@ export default function Products({ productSelection, setProductSelection }) {
         productSelection={productSelection}
         setProductSelection={setProductSelection}
       />
-      <FilterSystem search={search} setSearch={setSearch} />
+      <FilterSystem
+        search={search}
+        setSearch={setSearch}
+        setFiltered={setFiltered}
+        filtered={filtered}
+      />
       <StyledProductCardContainer>
         {(productSelection === "all" || productSelection === "cameras") &
-        (search.trim() === "")
+        (search.trim() === "") &
+        (filtered.length === 0)
           ? CameraProductList.map((product) => (
               <ProductCard
                 key={product.id}
@@ -69,7 +105,8 @@ export default function Products({ productSelection, setProductSelection }) {
             ))
           : null}
         {(productSelection === "all" || productSelection === "lenses") &
-        (search.trim() === "")
+        (search.trim() === "") &
+        (filtered.length === 0)
           ? LensProductList.map((product) => (
               <ProductCard
                 key={product.id}
@@ -83,7 +120,8 @@ export default function Products({ productSelection, setProductSelection }) {
             ))
           : null}
         {(productSelection === "all" || productSelection === "lights") &
-        (search.trim() === "")
+        (search.trim() === "") &
+        (filtered.length === 0)
           ? LightProductList.map((product) => (
               <ProductCard
                 key={product.id}
@@ -96,43 +134,24 @@ export default function Products({ productSelection, setProductSelection }) {
               />
             ))
           : null}
-
-        {(productSelection === ("all" & (search !== "")) || search !== "") &&
-          searchedCameras.map((product) => (
-            <ProductCard
-              key={product.id}
-              specialization={product.specialization}
-              available={product.available}
-              price={product.price}
-              title={product.title}
-              model={product.model}
-              imageUrl={product.image}
-            />
-          ))}
-        {((productSelection === "all") & (search !== "") || search !== "") &&
-          searchedLenses.map((product) => (
-            <ProductCard
-              key={product.id}
-              specialization={product.specialization}
-              available={product.available}
-              price={product.price}
-              title={product.title}
-              model={product.model}
-              imageUrl={product.image}
-            />
-          ))}
-        {((productSelection === "all") & (search !== "") || search !== "") &&
-          searchedLights.map((product) => (
-            <ProductCard
-              key={product.id}
-              specialization={product.specialization}
-              available={product.available}
-              price={product.price}
-              title={product.title}
-              model={product.model}
-              imageUrl={product.image}
-            />
-          ))}
+        {((productSelection === "all" && search !== "") ||
+          (productSelection === "all" && filtered.length > 0) ||
+          filtered.length > 0 ||
+          search !== "") &&
+          searchedCameras
+            .concat(searchedLenses)
+            .concat(searchedLights)
+            .map((product) => (
+              <ProductCard
+                key={product.model}
+                specialization={product.specialization}
+                available={product.available}
+                price={product.price}
+                title={product.title}
+                model={product.model}
+                imageUrl={product.image}
+              />
+            ))}
       </StyledProductCardContainer>
     </>
   );
