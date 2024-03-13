@@ -23,7 +23,7 @@ Our online shop is designed to cater to businesses in need of camera rental serv
 
 To set up a similar online shop for your business, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/your-camera-shop.git`
+1. Clone the repository: `git clone https://github.com/jonas8900/your-camera-shop.git`
 2. Navigate to the project directory: `cd your-camera-shop`
 3. Install dependencies: `npm install`
 4. Run the development server: `npm run dev`
