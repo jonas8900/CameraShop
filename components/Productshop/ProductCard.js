@@ -8,6 +8,7 @@ export default function ProductCard({
   title,
   model,
   imageUrl,
+  onClick,
 }) {
   return (
     <StyledSection>
@@ -15,7 +16,7 @@ export default function ProductCard({
       <StyledInformationArticle>
         <StyledInformationHeadline>{title}</StyledInformationHeadline>
         <StyledInformationModel>{model}</StyledInformationModel>
-        <StyledShowMoreButton>Konfigurieren</StyledShowMoreButton>
+        <StyledShowMoreButton onClick={onClick}>Konfigurieren</StyledShowMoreButton>
         <StyledInformationSpecialization>
           am besten geeignet für: <StyledSpan>{specialization}</StyledSpan>
         </StyledInformationSpecialization>

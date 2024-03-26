@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
-export default function ProductSelectButton({ children, onClick }) {
+export default function ProductSelectButton({ children, onClick, className }) {
   return (
     <>
-      <StyledButton onClick={onClick}>{children}</StyledButton>
+      <StyledButton onClick={onClick} className={className}>
+        {children}
+      </StyledButton>
     </>
   );
 }

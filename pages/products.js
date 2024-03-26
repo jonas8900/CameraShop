@@ -8,10 +8,12 @@ import {
   LightProductList,
 } from "@/components/DataCollection";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Products({ productSelection, setProductSelection }) {
   const [search, setSearch] = useState("");
   const [filtered, setFiltered] = useState([]);
+  const router = useRouter();
 
   function filterProducts(productList, search) {
     // this function filters the products, which are filtered by the fields in the filter system
@@ -74,7 +76,9 @@ export default function Products({ productSelection, setProductSelection }) {
   const searchedLenses = filterProducts(LensProductList, search);
   const searchedLights = filterProducts(LightProductList, search);
 
-  // this filtersystem searches for the product title, model and category and filters the products by the search input
+  function handleClickOnConfiguration(productId) {
+    router.push("/" + productId);
+  }
 
   return (
     <>
@@ -101,6 +105,7 @@ export default function Products({ productSelection, setProductSelection }) {
                 title={product.title}
                 model={product.model}
                 imageUrl={product.image}
+                onClick={() => handleClickOnConfiguration(product.id)}
               />
             ))
           : null}
@@ -116,6 +121,7 @@ export default function Products({ productSelection, setProductSelection }) {
                 title={product.title}
                 model={product.model}
                 imageUrl={product.image}
+                onClick={() => handleClickOnConfiguration(product.id)}
               />
             ))
           : null}
@@ -131,6 +137,7 @@ export default function Products({ productSelection, setProductSelection }) {
                 title={product.title}
                 model={product.model}
                 imageUrl={product.image}
+                onClick={() => handleClickOnConfiguration(product.id)}
               />
             ))
           : null}
@@ -150,6 +157,7 @@ export default function Products({ productSelection, setProductSelection }) {
                 title={product.title}
                 model={product.model}
                 imageUrl={product.image}
+                onClick={() => handleClickOnConfiguration(product.id)}
               />
             ))}
       </StyledProductCardContainer>
