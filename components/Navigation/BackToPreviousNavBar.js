@@ -3,8 +3,13 @@ import Hamburger from "./Hamburger";
 import styled, { keyframes } from "styled-components";
 import { useMediaQuery } from "../Customhooks/useMediaQuery";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCartShopping,
+  faCircleArrowLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
-export default function NavigationBar({className}) {
+export default function BackToPreviousNavBar({ className }) {
   const [menuClicked, setMenuClicked] = useState(false);
   const [animationEnd, setAnimationEnd] = useState(false);
 
@@ -26,6 +31,14 @@ export default function NavigationBar({className}) {
     <StyledNav className={className}>
       {isMobile ? (
         <>
+          <StyledArticle>
+            <StyledLink href="/products">
+              <StyledGoBackIcon icon={faCircleArrowLeft} />
+            </StyledLink>
+            <StyledBackToPreviousHeadline>
+              Zurück zur Produktübersicht
+            </StyledBackToPreviousHeadline>
+          </StyledArticle>
           <Hamburger
             setMenuClicked={setMenuClicked}
             menuClicked={menuClicked}
@@ -33,39 +46,35 @@ export default function NavigationBar({className}) {
           {animationEnd && (
             <StyledSection $menuclicked={menuClicked}>
               <StyledList>
-                <StyledLink href="/">
-                  <li>Home</li>
-                </StyledLink>
-                <StyledLink href="/products">
-                  <li>Produkte</li>
-                </StyledLink>
-                <StyledLink href="/offers">
-                  <li>Angebote</li>
-                </StyledLink>
-                <StyledLink href="/contact">
-                  <li>Kontakt</li>
-                </StyledLink>
                 <li>Login</li>
-                <li>Icon</li>
+                <li>
+                  <FontAwesomeIcon icon={faCartShopping} />
+                </li>
               </StyledList>
             </StyledSection>
           )}
         </>
       ) : (
-        <StyledList>
-          <StyledLink href="/">
-            <li>Home</li>
-          </StyledLink>
-          <StyledLink href="/products">
-            <li>Produkte</li>
-          </StyledLink>
-          <StyledLink href="/offers">
-            <li>Angebote</li>
-          </StyledLink>
-          <StyledLink href="/contact">
-            <li>Kontakt</li>
-          </StyledLink>
-        </StyledList>
+        <StyledDesktopSection>
+          <StyledArticle>
+            <StyledLink href="/products">
+              <StyledGoBackIcon icon={faCircleArrowLeft} />
+            </StyledLink>
+            <StyledBackToPreviousHeadline>
+              Zurück zur Produktübersicht
+            </StyledBackToPreviousHeadline>
+          </StyledArticle>
+          <StyledList>
+            <StyledLink href="#">
+              <li>Login</li>
+            </StyledLink>
+            <StyledLink href="#">
+              <li>
+                <FontAwesomeIcon icon={faCartShopping} />
+              </li>
+            </StyledLink>
+          </StyledList>
+        </StyledDesktopSection>
       )}
     </StyledNav>
   );
@@ -119,7 +128,7 @@ const StyledList = styled.ul`
     padding: 2rem 6rem;
 
     li {
-      color: white;
+      color: var(--color-primary-red);
       border: none;
       text-shadow: 0px 4px 20.5px rgba(255, 255, 255, 0.25);
       line-height: normal;
@@ -128,7 +137,7 @@ const StyledList = styled.ul`
       transition: color 0.2s ease-in-out;
 
       &:hover {
-        color: var(--color-primary-red);
+        color: black;
       }
     }
 
@@ -156,4 +165,42 @@ const StyledSection = styled.section`
   );
   animation: ${({ $menuclicked }) => ($menuclicked ? FadeIn : FadeOut)} 0.5s
     ease-in-out;
+`;
+
+const StyledArticle = styled.article`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 4rem 2rem 0 2rem;
+  @media (min-width: 1024px) {
+    margin-top: 0rem;
+  }
+`;
+
+const StyledGoBackIcon = styled(FontAwesomeIcon)`
+  font-size: 2rem;
+  color: var(--color-primary-red);
+  @media (min-width: 1024px) {
+    font-size: 3rem;
+  }
+`;
+
+const StyledDesktopSection = styled.section`
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 2rem;
+  }
+`;
+
+const StyledBackToPreviousHeadline = styled.h1`
+  font-size: var(--font-size-subheadline-mobile);
+  font-weight: var(--font-weight-semibold);
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-small-headline-desktop);
+    font-weight: var(--font-weight-semibold);
+  }
 `;
